@@ -6,7 +6,11 @@
 function Message() {
     // we describe what the UI is going to look like where we use  this component
     // below is JSX:Javascript XML
-    return <h1>Hello World</h1>;
+    // JSX allows us to create dynamic content
+    const name= '';
+    if(name)
+        return <h1>Hello {name}</h1>;
+    return <h1>Hello World</h1>
 
 }
 
