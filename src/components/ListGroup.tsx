@@ -3,23 +3,22 @@ function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
   items = [];
 
-  // sometimes we wanna render different content based on certain conditions
-  // if (items.length === 0)
-  //   return (
-  //     <>
-  //       {" "}
-  //       <h1>list</h1>
-  //       <p>No item found</p>{" "}
-  //     </>
-  //   );
+  // better way to use the if statement is to conclude it here and then  just call it in our return 
+  // there are 2 ways we can do this , by using a constant or by using a function
+  
+  // const message =  items.length === 0 ? <p>No item found</p> : null;
 
-  // in the above code, it works but there is a lot of duplication thus we are going to render things conditionally inside our jsx expression
+  // The good thing about using a function in this case is that our functions can have parameters thus we can have different messages depending on different conditions
+  const getMessage = () => {
+    return  items.length === 0 ? <p>No item found</p> : null;
+  }
+ 
   return (
     <>
       <h1>List</h1>
-      {/* inside here we cannot write an if statement because as stated earlier , here we can only use html elements or other react components but the only exception is braces, with braces we can render anything dynamically*/}
-      {items.length === 0 ? <p>No item found</p>: null }
-
+      
+      {/* {message} */}
+      {getMessage()}
       <ul className="list-group">
         {items.map((item) => (
           <li key={item}>{item}</li>
